@@ -1,1 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
 
+		<title>FDI and Economic Growth in Sri Lanka</title>
+
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+		/>
+
+		<link rel="stylesheet" href="../dist/reveal.css" />
+		<link rel="stylesheet" href="../dist/theme/black.css" id="theme" />
+
+		<style>
+			/* ---------- Base typography & layout ---------- */
+			.reveal .slides section {
+				text-align: left;
+				font-family: "Plus Jakarta Sans", "Helvetica Neue", Arial, sans-serif;
+			}
+			.reveal h1,
+			.reveal h2,
+			.reveal h3,
+			.reveal h4 {
+				text-transform: none;
+				font-weight: 700;
+				color: #2c1d16;
+			}
+			.reveal h2 {
+				font-size: 46px;
+				margin: 0 0 30px;
+			}
+			.reveal p,
+			.reveal li {
+				color: #4a3b32;
+				font-size: 24px;
+			}
+			.reveal ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			.eyebrow {
+				font-size: 16px !important;
+				font-weight: 700;
+				letter-spacing: 0.12em;
+				text-transform: uppercase;
+				color: #a0522d !important;
+				margin: 0 0 8px !important;
+			}
+
+			.content-top {
+				margin-top: 130px;
+			}
+
+			/* ---------- Cards ---------- */
+			.card {
+				background: #ffffff;
+				border-radius: 12px;
+				padding: 22px 26px;
+				color: #2c1d16;
+			}
+			.card.cream {
+				background: #f8f3ea;
+			}
+			.card.beige {
+				background: #f4e9da;
+			}
+			.card.dark {
+				background: #2c1d16;
+			}
+			.card h4 {
+				margin: 0 0 8px;
+				font-size: 26px;
+				font-weight: 700;
+				color: #2c1d16;
+			}
+			.card.dark h4 {
+				color: #ffffff;
+			}
+			.card p {
+				margin: 0;
+				font-size: 20px;
+				line-height: 1.35;
+				color: #5a4a40;
+			}
+			.card.dark p {
+				color: #e8d9c8;
+			}
+			.card .tag {
+				display: block;
+				font-size: 15px;
+				font-weight: 700;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				color: #a0522d;
+				margin-bottom: 6px;
+			}
+			.card.dark .tag {
+				color: #e0a060;
+			}
+			.card .title {
+				color: #a0522d;
+				font-weight: 700;
+				font-size: 24px;
+				margin: 0 0 6px;
+			}
+
+			.grid2 {
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				gap: 20px;
+			}
+			.grid3 {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 20px;
+			}
+			.grid4 {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: 20px;
+			}
+
+			/* ---------- Flow diagrams ---------- */
+			.flow {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 16px;
+			}
+			.flow .card {
+				flex: 1;
+				text-align: center;
+			}
+			.flow .arrow {
+				font-size: 44px;
+				color: #b5652a;
+				font-weight: 700;
+				line-height: 1;
+			}
+
+			/* ---------- Title / section slides ---------- */
+			.dark-slide h1 {
+				color: #faf6ef;
+				font-size: 62px;
+				line-height: 1.15;
+				margin: 0 0 24px;
+			}
+			.dark-slide p {
+				color: #e8d9c8;
+			}
+			.accent-line {
+				width: 90px;
+				height: 4px;
+				background: #b5652a;
+				border-radius: 2px;
+				margin: 36px 0 30px;
+			}
+
+			/* ---------- Table ---------- */
+			.reveal table.compare {
+				width: 100%;
+				border-collapse: collapse;
+				font-size: 22px;
+				margin-top: 60px;
+			}
+			.reveal table.compare th {
+				padding: 18px 24px;
+				text-align: left;
+				color: #ffffff;
+				font-size: 24px;
+				font-weight: 700;
+				border: none;
+			}
+			.reveal table.compare th.pos {
+				background: #8b4513;
+			}
+			.reveal table.compare th.neg {
+				background: #2c1d16;
+			}
+			.reveal table.compare td {
+				padding: 16px 24px;
+				color: #2c1d16;
+				border-bottom: 1px solid #ece4d8;
+				background: #ffffff;
+			}
+			.reveal table.compare tr:nth-child(even) td {
+				background: #faf7f0;
+			}
+
+			/* ---------- Bar chart ---------- */
+			.chart-card {
+				margin-top: 40px;
+				padding: 26px 34px 20px;
+			}
+			.chart-head {
+				display: flex;
+				justify-content: space-between;
+				align-items: baseline;
+				margin-bottom: 20px;
+			}
+			.chart-head strong {
+				font-size: 22px;
+				color: #2c1d16;
+			}
+			.chart-head span {
+				font-size: 18px;
+				color: #7a6a5f;
+			}
+			.bars {
+				display: flex;
+				justify-content: space-around;
+				align-items: flex-end;
+				height: 330px;
+				border-bottom: 2px solid #e5d8c8;
+			}
+			.bar-col {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: flex-end;
+				width: 14%;
+				height: 100%;
+			}
+			.bar-col .val {
+				font-size: 22px;
+				font-weight: 700;
+				color: #2c1d16;
+				margin-bottom: 8px;
+			}
+			.bar-col .bar {
+				width: 60px;
+				border-radius: 6px 6px 0 0;
+			}
+			.bar-col .lbl {
+				font-size: 20px;
+				color: #5a4a40;
+				margin: 10px 0 4px;
+			}
+			.bar-col .lbl.bold {
+				font-weight: 700;
+			}
+
+			/* ---------- Misc ---------- */
+			.reveal .highlight-text {
+				color: #a0522d;
+				font-weight: 700;
+			}
+			.key-box {
+				background: #f4e9da;
+				border-radius: 12px;
+				padding: 24px 30px;
+				text-align: center;
+				font-size: 28px;
+				font-weight: 700;
+				color: #2c1d16;
+				margin-top: 50px;
+			}
+			.quote-box {
+				background: #2c1d16;
+				border-radius: 12px;
+				padding: 40px 50px;
+				text-align: center;
+				color: #faf6ef;
+				font-size: 36px;
+				font-weight: 700;
+				line-height: 1.4;
+			}
+			.pill {
+				background: #ffffff;
+				border-radius: 12px;
+				padding: 18px 30px;
+				font-size: 26px;
+				font-weight: 700;
+				color: #2c1d16;
+				text-align: center;
+			}
+			.pill.accent {
+				color: #a0522d;
+			}
+			.ref-list p {
+				font-size: 20px;
+				margin: 0 0 14px;
+				line-height: 1.4;
+			}
+			.badge-circle {
+				width: 76px;
+				height: 76px;
+				border-radius: 50%;
+				background: #e0a060;
+				color: #2c1d16;
+				font-size: 44px;
+				font-weight: 700;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin: 0 auto 30px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<!-- 1. Title -->
+				<section data-background-color="#2c1d16" class="dark-slide">
+					<div style="margin-top: 170px">
+						<p class="eyebrow" style="color: #e0a060 !important">Economic Policy &amp; Development</p>
+						<h1>Foreign Direct Investment (FDI)<br />and Economic Growth in Sri Lanka</h1>
+						<p style="font-size: 30px">Opportunities, Challenges, and Policy Priorities</p>
+						<div class="accent-line"></div>
+						<p style="font-size: 20px; color: #bfae9c">
+							Presented by: [Group 7] &nbsp;|&nbsp; Course: [IMGT 1122] &nbsp;|&nbsp; Date: [2026/11/18] &nbsp;
+						</p>
+					</div>
+				</section>
+
+				<!-- 2. Context -->
+				<section data-background-color="#faf7f0">
+					<div class="content-top">
+						<p class="eyebrow">Context &amp; Core Question</p>
+						<h2>Bridging Sri Lanka’s Investment Gap</h2>
+
+						<div class="flow" style="margin-top: 50px">
+							<div class="card">
+								<h4>Domestic Resources</h4>
+								<p>Trade, tourism, remittances</p>
+							</div>
+							<div class="arrow">→</div>
+							<div class="card">
+								<h4>Investment Gap</h4>
+								<p>Domestic savings fall short</p>
+							</div>
+							<div class="arrow">→</div>
+							<div class="card dark">
+								<h4>Quality FDI</h4>
+								<p>Long-term foreign capital</p>
+							</div>
+							<div class="arrow">→</div>
+							<div class="card">
+								<h4>Shared Growth</h4>
+								<p>Jobs, tech, exports</p>
+							</div>
+						</div>
+
+						<div class="key-box">
+							Key Question: How can Sri Lanka attract <em>better</em>, not only <em>more</em>, FDI?
+						</div>
+					</div>
+				</section>
+
+				<!-- 3. Concept -->
+				<section data-background-color="#ffffff">
+					<div class="content-top" style="margin-top: 100px">
+						<p class="eyebrow">Conceptual Framework</p>
+						<h2>Meaning and Concept of FDI</h2>
+
+						<div class="grid2" style="margin-bottom: 20px">
+							<div class="card beige">
+								<h4>Foreign Direct Investment</h4>
+								<p><strong>Lasting Interest:</strong> ≥10% ownership and control</p>
+								<p><strong>Commitment:</strong> Fixed factories, land, jobs</p>
+							</div>
+							<div class="card cream">
+								<h4>Portfolio Investment</h4>
+								<p><strong>Passive Stake:</strong> Shares and government bonds</p>
+								<p><strong>High Mobility:</strong> Rapid short-term capital exit</p>
+							</div>
+						</div>
+
+						<div class="grid4">
+							<div class="card cream">
+								<p class="title">Greenfield</p>
+								<p>New factories or hotels</p>
+							</div>
+							<div class="card cream">
+								<p class="title">Brownfield</p>
+								<p>Acquiring existing local firms</p>
+							</div>
+							<div class="card cream">
+								<p class="title">Horizontal FDI</p>
+								<p>Same operations abroad</p>
+							</div>
+							<div class="card cream">
+								<p class="title">Vertical FDI</p>
+								<p>Supply chain stages abroad</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 4. Empirical overview -->
+				<section data-background-color="#faf7f0" data-transition="zoom" data backgroundTransition="concave">
+					<div style="margin-top: 80px">
+						<p class="eyebrow">Empirical Overview</p>
+						<h2>FDI Inflows in Sri Lanka (2010–2024)</h2>
+
+						<div class="card chart-card">
+							<div class="chart-head">
+								<strong>FDI Inflows, USD Million (UNCTAD / CBSL Data)</strong>
+								<span>2024 CBSL incl. loans: USD 846M (excl. loans: USD 761M)</span>
+							</div>
+
+							<div class="bars">
+								<div class="bar-col">
+									<span class="val">$478M</span>
+									<div class="bar" style="height: 89px; background: #b9a594"></div>
+									<span class="lbl">2010</span>
+								</div>
+								<div class="bar-col">
+									<span class="val">$680M</span>
+									<div class="bar" style="height: 126px; background: #8c7566"></div>
+									<span class="lbl">2015</span>
+								</div>
+								<div class="bar-col">
+									<span class="val">$1,614M</span>
+									<div class="bar" style="height: 300px; background: #3d2b1f"></div>
+									<span class="lbl bold">2018 Peak</span>
+								</div>
+								<div class="bar-col">
+									<span class="val">$884M</span>
+									<div class="bar" style="height: 164px; background: #8c7566"></div>
+									<span class="lbl">2022</span>
+								</div>
+								<div class="bar-col">
+									<span class="val">$759M</span>
+									<div class="bar" style="height: 141px; background: #9a5a25"></div>
+									<span class="lbl">2023</span>
+								</div>
+								<div class="bar-col">
+									<span class="val" style="color: #a0522d">$846M</span>
+									<div class="bar" style="height: 157px; background: #9a5a25"></div>
+									<span class="lbl bold">2024*</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="grid2" style="margin-top: 26px">
+							<div class="card">
+								<p style="font-size: 22px; color: #2c1d16"><strong>Top Origins:</strong> China, India, Singapore, UK, Japan</p>
+							</div>
+							<div class="card">
+								<p style="font-size: 22px; color: #2c1d16"><strong>Key Sectors:</strong> Ports, manufacturing, tourism, IT, energy</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 5. Importance -->
+				<section data-background-color="#ffffff">
+					<div class="content-top" style="margin-top: 100px">
+						<p class="eyebrow">Growth Transmission Channels</p>
+						<h2>Importance of FDI for Economic Growth</h2>
+
+						<div class="grid3">
+							<div class="card cream">
+								<h4>Capital Formation</h4>
+								<p>Funds factories and infrastructure</p>
+							</div>
+							<div class="card cream">
+								<h4>Technology &amp; Management</h4>
+								<p>Transfers modern quality standards</p>
+							</div>
+							<div class="card cream">
+								<h4>Employment</h4>
+								<p>Creates direct and supplier jobs</p>
+							</div>
+							<div class="card cream">
+								<h4>Exports &amp; Forex</h4>
+								<p>Expands foreign currency earnings</p>
+							</div>
+							<div class="card cream">
+								<h4>Revenue &amp; Spillovers</h4>
+								<p>Boosts taxes and local linkages</p>
+							</div>
+							<div class="card beige">
+								<h4>Education Matters</h4>
+								<p>Skilled workforce amplifies growth</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 6. Factors -->
+				<section data-background-color="#faf7f0">
+					<div style="margin-top: 90px">
+						<p class="eyebrow">Investment Climate Assessment</p>
+						<h2>Factors Affecting FDI in Sri Lanka</h2>
+
+						<table class="compare">
+							<thead>
+								<tr>
+									<th class="pos">✔ Positive Influences</th>
+									<th class="neg">⚠ Negative Influences</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Strategic Indian Ocean port location</td>
+									<td>Frequent policy and tax changes</td>
+								</tr>
+								<tr>
+									<td>Educated, English-speaking workforce</td>
+									<td>Small domestic consumer market</td>
+								</tr>
+								<tr>
+									<td>Ports, airports, expressways, zones</td>
+									<td>Power and infrastructure bottlenecks</td>
+								</tr>
+								<tr>
+									<td>Trade access (GSP+, regional FTAs)</td>
+									<td>Technical and digital skill gaps</td>
+								</tr>
+								<tr>
+									<td>BOI incentives and sector potential</td>
+									<td>Governance and bureaucratic delays</td>
+								</tr>
+								<tr>
+									<td>Growth in IT, tourism, green energy</td>
+									<td>Macroeconomic and forex constraints</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</section>
+
+				<!-- 7. Impact on businesses and society -->
+				<section data-background-color="#ffffff">
+					<div style="margin-top: 90px">
+						<p class="eyebrow">Balancing Benefits &amp; Safeguards</p>
+						<h2>Impact on Businesses and Society</h2>
+
+						<div style="display: grid; grid-template-columns: 500px 1fr; gap: 36px; margin-top: 30px; align-items: stretch">
+							<img
+								src="https://theloadstar.com/wp-content/uploads/d500fabceeaacd496613fa95ab763bc1-680x0-c-default.png"
+								alt="Aerial view of Colombo port"
+								style="width: 500px; height: 420px; object-fit: cover; border-radius: 14px; margin: 0"
+							/>
+							<div style="display: flex; flex-direction: column; gap: 20px">
+								<div class="card beige">
+									<h4 style="color: #8b4513">+ Socio-Economic Gains</h4>
+									<p><strong>Local Linkages:</strong> Jobs, training, supplier growth</p>
+									<p><strong>Productivity:</strong> Competition raises local quality</p>
+									<p><strong>Sustainability:</strong> Green energy and digital inflows</p>
+								</div>
+								<div class="card" style="background: #fdf3e7">
+									<h4 style="color: #b5652a">Public Concerns &amp; Risks</h4>
+									<p><strong>Sovereignty Debate:</strong> 99-year Hambantota Port lease</p>
+									<p><strong>Outflows &amp; Equity:</strong> Profit repatriation, regional gaps</p>
+									<p><strong>SME Pressure:</strong> Competition with small local firms</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 8. Investor perspective -->
+				<section data-background-color="#faf7f0" data-transition="concave" data backgroundTransition="slide">
+					<div style="margin-top: 170px">
+						<p class="eyebrow">Investor Perspective</p>
+						<h2>Challenges Faced by Foreign Investors</h2>
+
+						<div class="flow" style="margin-top: 60px">
+							<div class="card" style="text-align: left">
+								<span class="tag">Stage 01</span>
+								<h4>Can I Plan?</h4>
+								<p>Tax shifts and policy uncertainty</p>
+							</div>
+							<div class="arrow">›</div>
+							<div class="card" style="text-align: left">
+								<span class="tag">Stage 02</span>
+								<h4>Can I Operate?</h4>
+								<p>Bureaucracy, land, power delays</p>
+							</div>
+							<div class="arrow">›</div>
+							<div class="card" style="text-align: left">
+								<span class="tag">Stage 03</span>
+								<h4>Can I Repatriate?</h4>
+								<p>Forex limits and complex taxes</p>
+							</div>
+							<div class="arrow">›</div>
+							<div class="card dark" style="text-align: left">
+								<span class="tag">Outcome</span>
+								<h4>Invest or Delay</h4>
+								<p>IMF reforms rebuild confidence</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 9. Recommendations -->
+				<section data-background-color="#ffffff"  data-transition="zoom" >
+					<div class="content-top" style="margin-top: 110px">
+						<p class="eyebrow">Actionable Reform Agenda</p>
+						<h2>Recommendations to Attract Quality FDI</h2>
+
+						<div class="grid3">
+							<div class="card cream">
+								<h4>1. Policy Stability</h4>
+								<p>Predictable tax and trade rules</p>
+							</div>
+							<div class="card cream">
+								<h4>2. Digital One-Stop Shop</h4>
+								<p>Streamlined online investor approvals</p>
+							</div>
+							<div class="card cream">
+								<h4>3. Reliable Infrastructure</h4>
+								<p>Power, logistics, industrial zones</p>
+							</div>
+							<div class="card cream">
+								<h4>4. TVET &amp; Skills</h4>
+								<p>Align training with industry needs</p>
+							</div>
+							<div class="card cream">
+								<h4>5. Targeted Sectors</h4>
+								<p>Renewables, IT, agro-processing</p>
+							</div>
+							<div class="card cream">
+								<h4>6. Governance &amp; SMEs</h4>
+								<p>Transparent contracts, local linkages</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- 10. Conclusion -->
+				<section data-background-color="#faf7f0" data-transition="zoom" data backgroundTransition="fade-out">
+					<div style="margin-top: 110px">
+						<p class="eyebrow">Key Takeaway</p>
+						<h2>Conclusion: Quality Over Quantity</h2>
+
+						<div class="flow" style="justify-content: center; margin-top: 60px; gap: 30px">
+							<div class="pill" style="flex: 0 0 240px">Stable Policy</div>
+							<div class="arrow">→</div>
+							<div class="pill accent" style="flex: 0 0 280px">Quality Investment</div>
+							<div class="arrow">→</div>
+							<div class="pill" style="flex: 0 0 240px">Shared Growth</div>
+						</div>
+
+						<div class="quote-box" style="margin-top: 50px">
+							“The goal is not just more foreign investment, but better foreign investment that helps every Sri Lankan.”
+						</div>
+					</div>
+				</section>
+
+				<!-- 11. Thank you -->
+				<section data-background-color="#2c1d16" class="dark-slide" data-transition="zoom" data backgroundTransition ="slide">
+					<div style="text-align: center; margin-top: 140px">
+						<div class="badge-circle">?</div>
+						<h1 style="font-size: 64px; margin-bottom: 14px">Thank You for Your Attention</h1>
+						<p style="font-size: 28px; color: #bfae9c; margin: 0 0 24px">Questions and Discussion</p>
+						<p style="font-size: 22px; color: #e0a060; font-weight: 700">Contact: [Your Email / Student ID]</p>
+					</div>
+				</section>
+
+				<!-- 12. References -->
+				<section data-background-color="#f4ece1" data-transition="convex" data backgroundTransition="slide">
+					<div style="margin-top: 60px">
+						<h2>References</h2>
+						<div class="ref-list" style="margin-top: 60px">
+							<p>Board of Investment of Sri Lanka. (n.d.). <em>Investment guide and incentives</em>. https://www.investsrilanka.com</p>
+							<p>Blomström, M., &amp; Kokko, A. (1998). Multinational corporations and spillovers. <em>Journal of Economic Surveys, 12</em>(3), 247–277.</p>
+							<p>Borensztein, E., De Gregorio, J., &amp; Lee, J.-W. (1998). How does foreign direct investment affect economic growth? <em>Journal of International Economics, 45</em>(1), 115–135.</p>
+							<p>Central Bank of Sri Lanka. (various years). <em>Annual report</em>. https://www.cbsl.gov.lk</p>
+							<p>Dunning, J. H. (1993). <em>Multinational enterprises and the global economy</em>. Addison-Wesley.</p>
+							<p>International Monetary Fund. (2023). <em>Sri Lanka: Request for an extended arrangement under the Extended Fund Facility</em>. IMF.</p>
+							<p>OECD. (2008). <em>OECD benchmark definition of foreign direct investment</em> (4th ed.). OECD Publishing.</p>
+							<p>UNCTAD. (various years). <em>World investment report</em>. https://unctad.org</p>
+							<p>World Bank. (various years). <em>Sri Lanka development update</em>. World Bank.</p>
+						</div>
+					</div>
+				</section>
+
+				<!-- 13. Image sources -->
+				<section data-background-color="#ffffff" data-transition="zoom">
+					<h2>Image Sources</h2>
+					<div style="display: flex; align-items: center; gap: 24px; margin-top: 30px">
+						<img
+							src="https://theloadstar.com/wp-content/uploads/d500fabceeaacd496613fa95ab763bc1-680x0-c-default.png"
+							alt="Colombo port thumbnail"
+							style="width: 130px; height: 80px; object-fit: cover; border-radius: 8px; margin: 0"
+						/>
+						<div>
+							<p style="font-size: 18px; margin: 0 0 6px; word-break: break-all">
+								https://theloadstar.com/wp-content/uploads/d500fabceeaacd496613fa95ab763bc1-680x0-c-default.png
+							</p>
+							<p style="font-size: 22px; margin: 0">
+								Source: <a href="https://theloadstar.com" style="color: #5b4bd6">theloadstar.com</a>
+							</p>
+						</div>
+					</div>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script>
+			Reveal.initialize({
+				width: 1280,
+				height: 720,
+				hash: true,
+				center: false,
+				transition: "zoom",
+				backgroundTransition: 'slide'
+			});
+		</script>
+		<!-- <script> Reveal.initialize({
+  hash: true,                 // adds #/slide-number to URL (deep-linkable slides)
+  slideNumber: 'c/t',         // current / total in the corner
+  //transition: 'zoom',        // none | fade | slide | convex | concave | zoom
+//backgroundTransition: 'slide',
+  center: false,
+  width: 1280,
+  height: 720,
+  margin: 0.04,
+  minScale: 0.2,
+  maxScale: 2.0,
+
+  // fragments (the .fragment classes on cards) animate step by step
+  fragments: true,
+
+  // keyboard & touch navigation are on by default (arrows, space, swipe)
+  controls: true,
+  progress: true,
+
+  // press "s" for speaker notes view, "?" for the help overlay
+  help: true
+});</script> -->
+	</body>
+</html>
